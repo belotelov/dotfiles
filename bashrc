@@ -3,7 +3,16 @@
 
 
 # Load git-prompt.sh (path may differ)
-source /opt/homebrew/etc/bash_completion.d/git-prompt.sh
+if [ -f /opt/homebrew/etc/bash_completion.d/git-prompt.sh ]; then
+    # macOS (Homebrew)
+    source /opt/homebrew/etc/bash_completion.d/git-prompt.sh
+elif [ -f /usr/share/git/completion/git-prompt.sh ]; then
+    # Common Linux location (Debian/Ubuntu)
+    source /usr/share/git/completion/git-prompt.sh
+elif [ -f /etc/bash_completion.d/git-prompt ]; then
+    # Some other Linux distros
+    source /etc/bash_completion.d/git-prompt
+fi
 
 
 # Enable useful indicators
@@ -13,7 +22,11 @@ export GIT_PS1_SHOWUNTRACKEDFILES=1  # % if untracked files
 export GIT_PS1_SHOWUPSTREAM="auto"   # ↑/↓ for commits to push/pull
 
 # Modified PS1
-PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@macbook\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\[\033[33m\]$(__git_ps1 " (%s)")\[\033[00m\]\$ '
+if type __git_ps1 &>/dev/null; then
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@macbook\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\[\033[33m\]$(__git_ps1 " (%s)")\[\033[00m\]\$ '
+else
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@macbook\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+fi
 
 
 
