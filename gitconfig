@@ -1,5 +1,5 @@
 [core]
-	editor = emacs -nw
+	
 [user]
 	name = Ivan Belotelov
 	email = ivan@belotelov.ru
