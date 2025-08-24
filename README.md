@@ -28,8 +28,8 @@ Clone both repositories side by side and install everything at once:
 
 ```bash
 # Clone both repos
-git clone https://github.com/ibelotelov/dotfiles.git ~/dotfiles
-git clone <private-repo-url> ~/dotfiles-private
+git clone git@github.com:belotelov/dotfiles.git 
+git clone git@github.com:belotelov/dotfiles-private.git  
 
 # Install everything (public + private)
 cd ~/dotfiles
