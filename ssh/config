@@ -2,7 +2,7 @@ Host *
      ForwardAgent yes	
      AddKeysToAgent yes
      IdentitiesOnly yes
-     UseKeychain yes
+     # UseKeychain yes  # macOS only - uncomment if on macOS
      IdentityFile ~/.ssh/id_rsa
 
 # Load public host snippets first…
