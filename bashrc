@@ -14,6 +14,15 @@ elif [ -f /etc/bash_completion.d/git-prompt ]; then
     source /etc/bash_completion.d/git-prompt
 fi
 
+if command -v emacs >/dev/null 2>&1; then
+    export GIT_EDITOR="emacs -nw"
+elif command -v code >/dev/null 2>&1; then
+    export GIT_EDITOR="code --wait"
+else
+    export GIT_EDITOR="nano"
+fi
+	
+	
 
 # Enable useful indicators
 export GIT_PS1_SHOWDIRTYSTATE=1      # * for unstaged, + for staged
