@@ -1,0 +1,12 @@
+Host *
+     ForwardAgent yes	
+     AddKeysToAgent yes
+     IdentitiesOnly yes
+     UseKeychain yes
+     IdentityFile ~/.ssh/id_rsa
+
+# Load public host snippets first…
+Include ~/.ssh/config.d/public/*.conf
+# …then load private snippets that can override
+Include ~/.ssh/config.d/private/*.conf
+

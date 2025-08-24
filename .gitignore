@@ -1,0 +1,17 @@
+# never commit private keys or secrets
+**/id_rsa
+**/id_rsa.pub
+**/id_ed25519
+**/id_ed25519.pub
+**/*.key
+**/*.pem
+**/*.p12
+**/*.gpg
+**/.env
+**/.secrets
+**/credentials
+**/.docker/**
+**/.config/gcloud/**
+**/.aws/**
+**/.azure/**
+**/.kube/**
